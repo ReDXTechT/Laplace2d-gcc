@@ -1,12 +1,12 @@
 CC=gcc
 LD=gcc
 CFLAGS=-O2
-LDFLAGS= -fopenmp
+LDFLAGS= -fopenmp -lm
 
 all: exe run
 
 exe: laplace2d.o jacobi.o
-	$(LD) $(LDFLAGS) -o $@ $^ ${NVTXLIB} 
+	$(LD)  -o $@ $^ ${NVTXLIB} $(LDFLAGS)
 
 run: exe
 	./exe
